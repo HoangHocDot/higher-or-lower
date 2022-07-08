@@ -21,18 +21,19 @@ public class MainActivity extends AppCompatActivity {
 
             EditText numberOfUser =(EditText) findViewById(R.id.editTextNumber);
             Log.i("NumberRandom",Integer.toString(randomNumber));
-
+            String message;
             int inputNumber = Integer.parseInt(numberOfUser.getText().toString());
             Log.i("Number Input",inputNumber+"");
             if(inputNumber > randomNumber){
-                Toast.makeText(this, "Lower", Toast.LENGTH_SHORT).show();
+                message = "Lower";
             }  else if(inputNumber < randomNumber){
-            Toast.makeText(this, "Higher", Toast.LENGTH_SHORT).show();
+                message = "Higher";
                 }
             else{
-                Toast.makeText(this, "you get it, you so cool, You can try again!", Toast.LENGTH_SHORT).show();
+                message = "you get it, you so cool, You can try again!";
                 this.generateRandomNumber();
         }
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         }
 
     @Override
