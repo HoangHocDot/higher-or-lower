@@ -13,6 +13,10 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private  int randomNumber;
+    public void generateRandomNumber(){
+        Random random = new Random();
+        randomNumber = random.nextInt(20) +1;
+    }
     public void guessFunction(View v) {
 
             EditText numberOfUser =(EditText) findViewById(R.id.editTextNumber);
@@ -26,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Higher", Toast.LENGTH_SHORT).show();
                 }
             else{
-                Toast.makeText(this, "you get it, you so cool", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "you get it, you so cool, You can try again!", Toast.LENGTH_SHORT).show();
+                this.generateRandomNumber();
         }
         }
 
@@ -34,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Random random = new Random();
-        int n = random.nextInt(20) +1;
-        randomNumber = n;
+
+
     }
 }
